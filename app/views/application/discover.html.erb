@@ -1,0 +1,12 @@
+<center>
+    <h1>Recently Translated Songs</h1>
+    <p>Check out what songs and translations others have discovered!</p>
+</center>
+<hr>
+
+<% @translations.each do |translation| %>
+    <% @string = translation.name + ' in ' +  JSON.parse(File.read('./app/assets/data/language_codes.json'))[translation.language]['name'] %>
+      <ul>
+        <li><%= link_to @string, translation %></li>
+      </ul>
+    <% end %>

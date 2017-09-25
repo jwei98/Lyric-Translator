@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Sign In Count:</strong>
+  <%= @user.sign_in_count %>
+</p>
+
+<p>
+  <strong>Last Sign In:</strong>
+  <%= @user.last_sign_in_at.strftime("%m-%d-%Y @ %H:%M:%S") %>
+</p>
+<p>
+  <strong>Created:</strong>
+  <%= @user.created_at.strftime("%m-%d-%Y") %>
+</p>
+<p>
+  <strong>Admin?</strong>
+  <%= @user.admin %>
+</p>
+
+<p>
+  <strong>Songs Translated:</strong>
+  <% @user.translations.each do |translation| %>
+      <ul>
+        <li><%= translation.name %></li>
+      </ul>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

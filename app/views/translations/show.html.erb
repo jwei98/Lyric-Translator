@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @translation.name %></h1>
+<p>
+  Owner:
+  <%= @translation.user.email %>
+</p>
+<h4>Lyrics</h4>
+<p>
+  <%= @translation.lyric %>
+</p>
+<hr>
+<h4>Translation in <strong><%= JSON.parse(File.read('./app/assets/data/language_codes.json'))[@translation.language]['name'] %></strong></h4>
+<p>
+  <%= @translation.translation %>
+</p>
+
+<% if user_signed_in? %>
+  <% if current_user == @translation.user || current_user.admin? %>
+    <%= link_to 'Edit', edit_translation_path(@translation) %> |
+    <%= link_to 'Back', translations_path %>
+  <% end %>
+<% end %>

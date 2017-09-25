@@ -1,0 +1,21 @@
+<h1>User Activities</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.created_at.strftime("%m-%d-%Y @ %H:%M:%S") %></td>
+        <td>
+            <div class="activity"><strong><%= link_to activity.owner.email, activity.owner if activity.owner %> </strong> <%= render_activity activity %>
+            </div>
+        </td>
+    <% end %>
+  </tbody>
+</table>

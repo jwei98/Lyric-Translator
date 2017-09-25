@@ -1,0 +1,34 @@
+<center><h1><%= @title %></h1></center>
+<hr>
+<% unless @track_id.nil? %>
+            <% if @lyrics.nil? %>
+                    <p>No lyrics available for this track</p>
+            <% else %>
+                    <h4>Original Language: <strong><%=JSON.parse(File.read('./app/assets/data/language_codes.json'))[@language]['name'] %></strong></h4>
+                    <%= @lyrics %>
+            <% end %>
+
+            <hr>
+            
+            <% if @possible_translations.nil? %>
+                  <p>No translations available for this track</p>
+            <% else %>
+                  <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Translate to: <strong><%= JSON.parse(File.read('./app/assets/data/language_codes.json'))[params[:lang]]['name'] %></strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <% (0...@possible_translations.size-1).each do |j| %>
+                            <li><a href="/lyrics?songID=<%= @track_id %>&lang=<%=@possible_translations[j]%>"><%= JSON.parse(File.read('./app/assets/data/language_codes.json'))[@possible_translations[j]]['name'] %></a></li>
+                        <% end %>
+                      </ul>
+                  </div>
+            <% end %>
+            
+            <br>
+            
+            <%=@translation%>
+            <hr>
+            <%= render 'saveForm' %>
+<%end%>

@@ -1,0 +1,9 @@
+<%= form_for :translation, :url => translations_path do |f| %>
+        <%= f.hidden_field :songID, :value => @track_id %>
+        <%= f.hidden_field :name, :value => @title %>
+        <%= f.hidden_field :lyric, :value => @lyrics %>
+        <%= f.hidden_field :translation, :value => @translation %>
+        <%= f.hidden_field :language, :value => params[:lang] %>
+        <%= f.submit "Save Translation", class: "btn btn-default" %>
+<% end %>
+

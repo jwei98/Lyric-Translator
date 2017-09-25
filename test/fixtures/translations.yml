@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  songID: 1
+  lyric: MyText
+  translation: MyText
+  user: justin
+
+two:
+  songID: 2
+  lyric: MyText2
+  translation: MyText2
+  user: justin
+  
+three:
+  songID: 3
+  lyric: MyText3
+  translation: MyText3
+  user: alex

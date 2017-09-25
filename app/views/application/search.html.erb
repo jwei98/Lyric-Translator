@@ -1,0 +1,10 @@
+<center><h1><%= @title %></h1></center>
+<hr>
+<% unless @track_array.nil? %>
+    <ul>
+        <% (0..@track_array.size-1).each do |i| %>
+        
+            <li><a href="/lyrics?songID=<%= @trackID_array[i] %>&lang=en"><p>"<%= @track_array[i] %>", by <%= @artist_array[i] %></p></a></li>
+        <% end %>
+    </ul>
+<%end%>

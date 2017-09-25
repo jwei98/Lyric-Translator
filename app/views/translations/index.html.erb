@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @title %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Song</th>
+      <th>Translated to</th>
+      <% if current_user.admin? %>
+        <th>Owner</th>
+      <% end %>
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @translations.each do |translation| %>
+      <tr>
+        <td><%= translation.name %></td>
+        <td><%= JSON.parse(File.read('./app/assets/data/language_codes.json'))[translation.language]['name'] %></td>
+        <% if current_user.admin? %>
+            <td><%= translation.user.email %></td>
+        <% end %>
+        <td><%= translation.created_at.strftime("%m-%d-%Y") %></td>
+        <td><%= link_to 'Show', translation %> <%= link_to 'Edit', edit_translation_path(translation) %> <%= link_to 'Delete', translation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

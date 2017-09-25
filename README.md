@@ -1,6 +1,5 @@
-Author: Justin Wei
-Date Created: April 18, 2017
-Description: This is my final project for CS 290 at Duke University.
-Esentially, the web app allows users to explore the lyrics of songs
-in various languages using the Ruby on Rails framework and several different
-APIs.
+# Lyric Translator
+
+Allows users to explore song lyrics in a variety of other languages. Features include user accounts, which allow users to save lyric translations, as well as a "Discover" page, which shows what songs others are translating and in what languages.
+
+I built this app to combine my passion for music and languages. Web-application was built using Ruby on Rails and integration of several APIs.
